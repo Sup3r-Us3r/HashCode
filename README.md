@@ -52,7 +52,7 @@ Its purpose is to encode your desired hash text.
 ```sh
 $ sudo pacman -S git // or sudo apt-get install git
 $ git clone https://github.com/Sup3r-Us3r/HashCode.git
-$ cd HashCode
+$ cd HashCode/
 $ sudo chmod +x hashcode.py
 ```
 Use.
