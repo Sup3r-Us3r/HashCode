@@ -60,4 +60,5 @@ Use.
 $ ./hashcode.py
 ```
 > Dependency - Python3.5
-> See more other projects on my GitHub [MyDotifile](https://github.com/Sup3r-Us3r/MyDotfiles), [Spy-Quiz](https://github.com/Sup3r-Us3r/Spy-Quiz)
+
+> See more other projects on my GitHub [MyDotifiles](https://github.com/Sup3r-Us3r/MyDotfiles) and [Spy-Quiz](https://github.com/Sup3r-Us3r/Spy-Quiz)
