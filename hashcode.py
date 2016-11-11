@@ -1,6 +1,10 @@
 #!/usr/bin/env python3.5
 #coding: utf-8
 
+'''
+HashCode
+'''
+
 import hashlib
 import base64
 from time import sleep
