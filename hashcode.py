@@ -22,9 +22,8 @@ def Apresentacao():
 ██▀▀█ █▄▄█ ▄  ▀▀▀▀▄   ██▀▀█     █   ▀  █   █ █   █ ██▄▄    
 █   █ █  █  ▀▄▄▄▄▀    █   █     █▄  ▄▀ ▀████ █  █  █▄   ▄▀ 
    █     █               █      ▀███▀        ███▀  ▀███▀   
-  ▀     █               ▀                                  
-       ▀                                                  \033[1;m
-
+  ▀     █               ▀                               
+       ▀                             By: Magno-Tutor   \033[1;m
 ''')
 
 
@@ -40,6 +39,7 @@ def Escolha():
 \033[31m5\033[1;m) Encode - Sha384
 \033[31m6\033[1;m) Encode - Sha512
 \033[31m7\033[1;m) Encode - Base64
+\033[31m8\033[1;m) Cifra de César
 
 \033[31mq\033[1;m) Sair
 """)
@@ -58,6 +58,8 @@ def Escolha():
 		Sha512()
 	elif opcao1 == "7":
 		Base64()
+	elif opcao1 == "8":
+		CifraDeCesar()
 	elif opcao1 == "q":
 		os.system(Sair)
 	else:
@@ -126,13 +128,66 @@ def Sha512():
 		Escolha()
 
 def Base64():
-	Apresentacao()
-	digite = str(input("\033[32mColoque o texto que queira encriptar em base64\033[1;m: ")) 
-	print("")
-	codificar = base64.b64encode(digite.encode('utf-8', 'replace')) 
-	decodificar = base64.b64decode(codificar) 
-	print(codificar, " = ", decodificar)
-	print("") 
+		Apresentacao()
+		digite = str(input("\033[32mColoque o texto que queira encriptar em base64\033[1;m: ")) 
+		print("")
+		codificar = base64.b64encode(digite.encode('utf-8', 'replace')) 
+		decodificar = base64.b64decode(codificar) 
+		print(codificar, " = ", decodificar)
+		print("") 
+		input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
+		Escolha()
+
+def CifraDeCesar():
+		Apresentacao()
+		print("""
+[\033[1;32m*\033[1;m] Escolha uma das opções abaixo para continuar.
+
+\033[31m1\033[1;m) Encode - Cifra de César
+\033[31m2\033[1;m) Decode - Cifra de César
+""")
+		opcao1 = input("\033[1;36mOpção:\033[1;m ")
+		if opcao1 == "1":
+			ChamarBloco1()
+		elif opcao1 == "2":
+			ChamarBloco2()
+
+def cifrar(palavras, chave):
+	abc = "abcdefghijklmnopqrstuvwxyz "
+	text_cifrado = ''
+
+	for letra in palavras:
+		soma = abc.find(letra) + chave
+		modulo = int(soma) % len(abc)
+		text_cifrado = text_cifrado + str(abc[modulo])
+
+	return text_cifrado
+
+
+def decifrar(palavras, chave):
+	abc = "abcdefghijklmnopqrstuvwxyz "
+	text_cifrado = ''
+
+	for letra in palavras:
+		soma = abc.find(letra) - chave
+		modulo = int(soma) % len(abc)
+		text_cifrado = text_cifrado + str(abc[modulo])
+
+	return text_cifrado
+
+def ChamarBloco1():
+	c = str(input('\033[32mTexo a ser cifrado\033[1;m: ')).lower()
+	n = int(input('\033[32mChave numérica\033[1;m: '))
+	print (cifrar(c, n))
+	print('')
+	input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
+	Escolha()
+
+def ChamarBloco2():
+	cc = str(input('\033[32mTexto para ser decifrado\033[1;m: ')).lower()
+	cn = int(input('\033[32mChave numérica\033[1;m: '))
+	print (decifrar(cc, cn))
+	print('')
 	input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
 	Escolha()
 
