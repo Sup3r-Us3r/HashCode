@@ -57,7 +57,7 @@ def Sha384():
 def Sha512():
 		mystring = (bloco1.get())
 		hash_object = hashlib.sha512(mystring.encode())
-		janela.geometry("1003x350")
+		janela.geometry("1010x350")
 		lb["text"] = hash_object.hexdigest()
 		resultado = open("hash.txt", "w")
 		resultado.write("Sua senha encriptada em Sha512 é: " + hash_object.hexdigest())
