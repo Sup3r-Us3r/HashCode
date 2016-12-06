@@ -1,10 +1,10 @@
-# HashCode 
+# HashCode 
 <img alt="python-logo" width="180" src="https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/python-logo.png">
 
 ### See more at:
 
-* [Python](https://www.python.org/)
-* [Arch Linux](https://www.archlinux.org/)
+* [Python](https://www.python.org/) 
+* [Arch Linux](https://www.archlinux.org/) 
 
 ### About:
 
@@ -14,32 +14,32 @@ Its purpose is to encode your desired hash text.
 
 ### Screenshots of different types of hash in operation:
 
-`Main`
+`Main `
 ![Main][screenshot1]
 
-`Md5`
+`Md5 `
 ![Md5][screenshot2]
 
-`Sha1`
+`Sha1 `
 ![Sha1][screenshot3]
 
-`Sha224`
+`Sha224 `
 ![Monster][screenshot4]
 
-`Sha256`
+`Sha256 `
 ![Sha256][screenshot5]
 
-`Sha384`
+`Sha384 `
 ![Sha384][screenshot6]
 
-`Sha512`
+`Sha512 `
 ![Sha512][screenshot7]
 
-`Base64`
+`Base64 `
 ![Base64][screenshot8]
 
 ----------------------
-`HashCodeGUI`
+`HashCodeGUI `
 ![HashCodeGUI][screenshot9]
 
 ----------------------
@@ -62,11 +62,13 @@ $ git clone https://github.com/Sup3r-Us3r/HashCode.git
 $ cd HashCode/
 $ sudo chmod +x hashcode.py hashcodegui.py
 ```
-Use.
+### Use.
 ```sh
 $ ./hashcode.py // Mode text
 $ ./hashcodegui.py // Mode GUI - Interface Graphical
 ```
-> Dependency - Python3.5 and Tk
+---------------------
 
-> See more other projects on my GitHub [MyDotifiles](https://github.com/Sup3r-Us3r/MyDotfiles) and [Spy-Quiz](https://github.com/Sup3r-Us3r/Spy-Quiz)
+>  Dependency - Python3.5 and Tk
+
+>  See more other projects on my GitHub [MyDotifiles](https://github.com/Sup3r-Us3r/MyDotfiles) and [Spy-Quiz](https://github.com/Sup3r-Us3r/Spy-Quiz)
