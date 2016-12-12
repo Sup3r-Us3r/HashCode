@@ -8,9 +8,9 @@ HashCode
 import hashlib
 import base64
 from time import sleep
+from sys import exit
 import os
 
-Sair = "reset && exit"
 Limpar = "reset"
 
 def Apresentacao():
@@ -61,7 +61,7 @@ def Escolha():
 	elif opcao1 == "8":
 		CifraDeCesar()
 	elif opcao1 == "q":
-		os.system(Sair)
+		exit(1)
 	else:
 		ComandoNaoEncontrado()
 		input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
@@ -176,18 +176,16 @@ def decifrar(palavras, chave):
 	return text_cifrado
 
 def ChamarBloco1():
-	c = str(input('\033[32mTexo a ser cifrado\033[1;m: ')).lower()
+	c = str(input('\n\033[32mTexo a ser cifrado\033[1;m: ')).lower()
 	n = int(input('\033[32mChave numérica\033[1;m: '))
-	print (cifrar(c, n))
-	print('')
+	print("\033[32mResultado\033[1;m:", cifrar(c, n))
 	input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
 	Escolha()
 
 def ChamarBloco2():
-	cc = str(input('\033[32mTexto para ser decifrado\033[1;m: ')).lower()
+	cc = str(input('\n\033[32mTexto para ser decifrado\033[1;m: ')).lower()
 	cn = int(input('\033[32mChave numérica\033[1;m: '))
-	print (decifrar(cc, cn))
-	print('')
+	print("\033[32mResultado\033[1;m:", decifrar(cc, cn))
 	input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
 	Escolha()
 
