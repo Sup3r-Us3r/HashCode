@@ -6,7 +6,7 @@ HashCode
 '''
 
 import hashlib
-import base64
+from base64 import b64encode, b64decode
 from time import sleep
 from sys import exit
 import os
@@ -69,74 +69,95 @@ def Escolha():
 
 def Md5():
 		Apresentacao()
-		mystring = input('\033[32mColoque o texto que queira encriptar em MD5\033[1;m: ')
+		mystring = input("\033[32mColoque o texto que queira encriptar em MD5\033[1;m: ")
 		hash_object = hashlib.md5(mystring.encode())
 		print("")
 		print(hash_object.hexdigest())
 		print("")
-		input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
-		Escolha()
+		opcao1 = input("\n\033[1;36mDeseja fazer outro encode MD5 (s/n) ?:\033[1;m ")
+		if opcao1 == "s":
+			Md5()
+		elif opcao1 == "n":
+			Escolha()
 
 def Sha1():
 		Apresentacao()
-		mystring = input('\033[32mColoque o texto que queira encriptar em Sha1\033[1;m: ')
+		mystring = input("\033[32mColoque o texto que queira encriptar em Sha1\033[1;m: ")
 		hash_object = hashlib.sha1(mystring.encode())
 		print("")
 		print(hash_object.hexdigest())
 		print("")
-		input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
-		Escolha()
+		opcao1 = input("\n\033[1;36mDeseja fazer outro encode SHA1 (s/n) ?:\033[1;m ")
+		if opcao1 == "s":
+			Sha1()
+		elif opcao1 == "n":
+			Escolha()
 
 def Sha224():
 		Apresentacao()
-		mystring = input('\033[32mColoque o texto que queira encriptar em Sha224\033[1;m: ')
+		mystring = input("\033[32mColoque o texto que queira encriptar em Sha224\033[1;m: ")
 		hash_object = hashlib.sha224(mystring.encode())
 		print("")
 		print(hash_object.hexdigest())
 		print("")
-		input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
-		Escolha()
+		opcao1 = input("\n\033[1;36mDeseja fazer outro encode SHA224 (s/n) ?:\033[1;m ")
+		if opcao1 == "s":
+			Sha224()
+		elif opcao1 == "n":
+			Escolha()
 
 def Sha256():
 		Apresentacao()
-		mystring = input('\033[32mColoque o texto que queira encriptar em Sha256\033[1;m: ')
+		mystring = input("\033[32mColoque o texto que queira encriptar em Sha256\033[1;m: ")
 		hash_object = hashlib.sha256(mystring.encode())
 		print("")
 		print(hash_object.hexdigest())
 		print("")
-		input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
-		Escolha()
+		opcao1 = input("\n\033[1;36mDeseja fazer outro encode SHA256 (s/n) ?:\033[1;m ")
+		if opcao1 == "s":
+			Sha256()
+		elif opcao1 == "n":
+			Escolha()
 
 def Sha384():
 		Apresentacao()
-		mystring = input('\033[32mColoque o texto que queira encriptar em Sha384\033[1;m: ')
+		mystring = input("\033[32mColoque o texto que queira encriptar em Sha384\033[1;m: ")
 		hash_object = hashlib.sha384(mystring.encode())
 		print("")
 		print(hash_object.hexdigest())
 		print("")
-		input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
-		Escolha()
+		opcao1 = input("\n\033[1;36mDeseja fazer outro encode SHA384 (s/n) ?:\033[1;m ")
+		if opcao1 == "s":
+			Sha384()
+		elif opcao1 == "n":
+			Escolha()
 
 def Sha512():
 		Apresentacao()
-		mystring = input('\033[32mColoque o texto que queira encriptar em Sha512\033[1;m: ')
+		mystring = input("\033[32mColoque o texto que queira encriptar em Sha512\033[1;m: ")
 		hash_object = hashlib.sha512(mystring.encode())
 		print("")
 		print(hash_object.hexdigest())
 		print("")
-		input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
-		Escolha()
+		opcao1 = input("\n\033[1;36mDeseja fazer outro encode SHA512 (s/n) ?:\033[1;m ")
+		if opcao1 == "s":
+			Sha512()
+		elif opcao1 == "n":
+			Escolha()
 
 def Base64():
 		Apresentacao()
-		digite = str(input("\033[32mColoque o texto que queira encriptar em base64\033[1;m: ")) 
+		mystring = str(input("\033[32mColoque o texto que queira encriptar em base64\033[1;m: ")) 
 		print("")
-		codificar = base64.b64encode(digite.encode('utf-8', 'replace')) 
-		decodificar = base64.b64decode(codificar) 
-		print(codificar, " = ", decodificar)
+		encode = b64encode(mystring.encode('utf-8')) 
+		decode = encode.decode('utf-8')
+		print(decode)
 		print("") 
-		input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
-		Escolha()
+		opcao1 = input("\n\033[1;36mDeseja fazer outro encode BASE64 (s/n) ?:\033[1;m ")
+		if opcao1 == "s":
+			Base64()
+		elif opcao1 == "n":
+			Escolha()
 
 def CifraDeCesar():
 		Apresentacao()
@@ -176,18 +197,27 @@ def decifrar(palavras, chave):
 	return text_cifrado
 
 def ChamarBloco1():
+	Apresentacao()
 	c = str(input('\n\033[32mTexo a ser cifrado\033[1;m: ')).lower()
 	n = int(input('\033[32mChave numérica\033[1;m: '))
 	print("\033[32mResultado\033[1;m:", cifrar(c, n))
-	input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
-	Escolha()
+	opcao1 = input("\n\033[1;36mDeseja fazer outro encode da CIFRA DE CÉSAR (s/n) ?:\033[1;m ")
+	if opcao1 == "s":
+		ChamarBloco1()
+	elif opcao1 == "n":
+		Escolha()
 
 def ChamarBloco2():
+	Apresentacao()
 	cc = str(input('\n\033[32mTexto para ser decifrado\033[1;m: ')).lower()
 	cn = int(input('\033[32mChave numérica\033[1;m: '))
 	print("\033[32mResultado\033[1;m:", decifrar(cc, cn))
-	input("\n\033[1;36mPressione ENTER para voltar...\033[1;m ")
-	Escolha()
+	opcao1 = input("\n\033[1;36mDeseja fazer outro decode da CIFRA DE CÉSAR (s/n) ?:\033[1;m ")
+	if opcao1 == "s":
+		ChamarBloco2()
+	elif opcao1 == "n":
+		Escolha()
+
 
 def ComandoNaoEncontrado():
 	print("""
