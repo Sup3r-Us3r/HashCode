@@ -38,21 +38,35 @@ Its purpose is to encode your desired hash text.
 `Base64`
 ![Base64][screenshot8]
 
+`Binary`
+![Binary][screenshot9]
+
+`Hexadecimal`
+![Hexadecimal][screenshot10]
+
+`Cipher of Cesar`
+![Cipher][screenshot11]
+![Cipher][screenshot12]
+
 ----------------------
 `HashCodeGUI`
-![HashCodeGUI][screenshot9]
+![HashCodeGUI][screenshot13]
 
 ----------------------
 
-[screenshot1]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-11-11-16%3A05%3A55.png
-[screenshot2]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-11-11-16%3A06%3A06.png
-[screenshot3]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-11-11-16%3A06%3A16.png
-[screenshot4]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-11-11-16%3A06%3A27.png
-[screenshot5]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-11-11-16%3A06%3A41.png
-[screenshot6]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-11-11-16%3A06%3A58.png
-[screenshot7]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-11-11-16%3A07%3A15.png
-[screenshot8]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-11-11-16%3A07%3A34.png
-[screenshot9]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-03-20%3A15%3A36.png
+[screenshot1]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A27%3A23.png
+[screenshot2]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A28%3A51.png
+[screenshot3]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A29%3A00.png
+[screenshot4]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A29%3A12.png
+[screenshot5]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A29%3A29.png
+[screenshot6]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A29%3A46.png
+[screenshot7]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A30%3A03.png
+[screenshot8]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A30%3A33.png
+[screenshot9]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A30%3A55.png
+[screenshot10]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A31%3A15.png
+[screenshot11]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A34%3A06.png
+[screenshot12]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A37%3A04.png
+[screenshot13]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A43%3A05.png
 
 ### Installation and use.
 
