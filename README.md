@@ -71,7 +71,7 @@ Its purpose is to encode your desired hash text.
 ### Installation and use.
 
 ```sh
-$ sudo pacman -S git tk // or sudo apt-get install git tk
+$ sudo pacman -S git python tk // or sudo apt-get install git python3-tk
 $ git clone https://github.com/Sup3r-Us3r/HashCode.git
 $ cd HashCode/
 $ sudo chmod +x hashcode.py hashcodegui.py
@@ -79,10 +79,10 @@ $ sudo chmod +x hashcode.py hashcodegui.py
 ### Use.
 ```sh
 $ ./hashcode.py // Mode text
-$ ./hashcodegui.py // Mode GUI - Interface Graphical
+$ ./hashcodegui.py // Mode GUI - Graphical User interface
 ```
 ---------------------
 
-> * Dependency - `Python3.5` and `Tk`
+> * Dependency - `Python3.5 or Python3 | Python3.4` and `Tk`
 
 > * See more other projects on my GitHub [MyDotifiles](https://github.com/Sup3r-Us3r/MyDotfiles) and [Spy-Quiz](https://github.com/Sup3r-Us3r/Spy-Quiz)
