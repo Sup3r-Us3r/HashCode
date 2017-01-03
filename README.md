@@ -92,8 +92,8 @@ Its purpose is to encode your desired hash text.
 $ sudo pacman -S git python tk // or sudo apt-get install git python3-tk
 $ git clone https://github.com/Sup3r-Us3r/HashCode.git
 $ cd HashCode/
-$ sudo chmod +x hashcode-pt.py hashcodegui.py // for portuguese
-$ sudo chmod +x hashcode-en.py hashcodegui.py // for english
+$ sudo chmod +x hashcode-pt.py hashcodegui.py // For portuguese
+$ sudo chmod +x hashcode-en.py hashcodegui.py // For english
 ```
 ### Use.
 ```sh
