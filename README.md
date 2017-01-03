@@ -37,36 +37,54 @@ Its purpose is to encode your desired hash text.
 
 `Base64`
 ![Base64][screenshot8]
+![Base64][screenshot9]
 
 `Binary`
-![Binary][screenshot9]
+![Binary][screenshot10]
+![Binary][screenshot11]
 
 `Hexadecimal`
-![Hexadecimal][screenshot10]
+![Hexadecimal][screenshot12]
+![Hexadecimal][screenshot13]
 
 `Cipher of Cesar`
-![Cipher][screenshot11]
-![Cipher][screenshot12]
+![Cipher][screenshot14]
+![Cipher][screenshot15]
+
+`Reverse Text`
+![ReverseText][screenshot16]
+![ReverseText][screenshot17]
+
+`Reverse Words`
+![ReverseWords][screenshot18]
+![ReverseWords][screenshot19]
 
 ----------------------
 `HashCodeGUI`
-![HashCodeGUI][screenshot13]
+![HashCodeGUI][screenshot20]
 
 ----------------------
 
-[screenshot1]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A27%3A23.png
-[screenshot2]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A28%3A51.png
-[screenshot3]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A29%3A00.png
-[screenshot4]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A29%3A12.png
-[screenshot5]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A29%3A29.png
-[screenshot6]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A29%3A46.png
-[screenshot7]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A30%3A03.png
-[screenshot8]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A30%3A33.png
-[screenshot9]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A30%3A55.png
-[screenshot10]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A31%3A15.png
-[screenshot11]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A34%3A06.png
-[screenshot12]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A37%3A04.png
-[screenshot13]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2016-12-28-14%3A43%3A05.png
+[screenshot1]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/1.png
+[screenshot2]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/2.png
+[screenshot3]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/3.png
+[screenshot4]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/4.png
+[screenshot5]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/5.png
+[screenshot6]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/6.png
+[screenshot7]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/7.png
+[screenshot8]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/8.png
+[screenshot9]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/9.png
+[screenshot10]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/10.png
+[screenshot11]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/11.png
+[screenshot12]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/12.png
+[screenshot13]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/13.png
+[screenshot14]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/14.png
+[screenshot15]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/15.png
+[screenshot16]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/16.png
+[screenshot17]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/17.png
+[screenshot18]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/18.png
+[screenshot19]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/19.png
+[screenshot20]:https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/20.png
 
 ### Installation and use.
 
