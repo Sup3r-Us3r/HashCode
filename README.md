@@ -92,11 +92,13 @@ Its purpose is to encode your desired hash text.
 $ sudo pacman -S git python tk // or sudo apt-get install git python3-tk
 $ git clone https://github.com/Sup3r-Us3r/HashCode.git
 $ cd HashCode/
-$ sudo chmod +x hashcode.py hashcodegui.py
+$ sudo chmod +x hashcode-pt.py hashcodegui.py // for portuguese
+$ sudo chmod +x hashcode-en.py hashcodegui.py // for english
 ```
 ### Use.
 ```sh
-$ ./hashcode.py // Mode text
+$ ./hashcode-pt.py // For portuguese - mode text
+$ ./hashcode-en.py / For english - mode text
 $ ./hashcodegui.py // Mode GUI - Graphical User interface
 ```
 ---------------------
