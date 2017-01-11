@@ -2,424 +2,233 @@
 #coding: utf-8
 
 '''
-HashCode
+HashCodeGUI
+
 '''
 
-import hashlib
-from base64 import b64encode, b64decode
-import codecs
-import binascii
-import re
-from time import sleep
-import sys
-import os
-from platform import python_version
+######################################### VERIFICADOR DE VERSÃO ################################################
 
-Limpar = "clear"
+import sys
+from platform import python_version
 
 if sys.version_info[0] < 3:
 	versao = python_version()
-	print("\n\033[32m You are using python in the version\033[1;m \033[1m\033[31m%s\033[1;m \033[32mand it is lower than python3 onwards.\033[1;m" %(versao))
-	print("\033[32m Please run HashCode with a higher version than python2\033[1;m\n")
+	print("\n\033[32m Você está usando o python na versão\033[1;m \033[1m\033[31m%s\033[1;m \033[32me ela é inferior ao python3 em diante.\033[1;m" %(versao))
+	print("\033[32m Por favor rode o HashCodeGUI com a versão superior ao python2.\033[1;m\n")
 	exit(1)
 
-def Apresentacao():
-	os.system(Limpar)
-	print("""\033[31m
+################################################################################################################
 
-	 ▄  █ ██      ▄▄▄▄▄    ▄  █     ▄█▄    ████▄ ██▄   ▄███▄   
-	█   █ █ █    █     ▀▄ █   █     █▀ ▀▄  █   █ █  █  █▀   ▀  
-	██▀▀█ █▄▄█ ▄  ▀▀▀▀▄   ██▀▀█     █   ▀  █   █ █   █ ██▄▄    
-	█   █ █  █  ▀▄▄▄▄▀    █   █     █▄  ▄▀ ▀████ █  █  █▄   ▄▀ 
-	   █     █               █      ▀███▀        ███▀  ▀███▀   
-	  ▀     █               ▀                               
-	       ▀                             \033[1mBy: Magno-Tutor\033[1;m
-
-""")
-
-def Again(frase, call):
-	opcao1 = input(frase)
-	if opcao1 == "y":
-		call()
-	elif opcao1 == "n":
-		Escolha()
-	else:
-		Again(frase,call)
+import os
+from tkinter import *
+import hashlib
+from base64 import b64encode, b64decode
+import binascii
+import codecs
 
 
-def Escolha():
-	Apresentacao()
-	print("""
-	[\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
-
-	\033[31mA\033[1;m) \033[31mENCODE\033[1;m - \033[32mMD5\033[1;m
-	\033[31mB\033[1;m) \033[31mENCODE\033[1;m - \033[32mSHA1\033[1;m
-	\033[31mC\033[1;m) \033[31mENCODE\033[1;m - \033[32mSHA224\033[1;m
-	\033[31mD\033[1;m) \033[31mENCODE\033[1;m - \033[32mSHA256\033[1;m
-	\033[31mE\033[1;m) \033[31mENCODE\033[1;m - \033[32mSHA384\033[1;m
-	\033[31mF\033[1;m) \033[31mENCODE\033[1;m - \033[32mSHA512\033[1;m
-	\033[31mG\033[1;m) \033[31mENCODE/DECODE\033[1;m - \033[32mBASE64\033[1;m
-	\033[31mH\033[1;m) \033[31mENCODE/DECODE\033[1;m - \033[32mBINARY\033[1;m
-	\033[31mI\033[1;m) \033[31mENCODE/DECODE\033[1;m - \033[32mHEXADECIMAL\033[1;m
-	\033[31mJ\033[1;m) \033[31mENCODE/DECODE\033[1;m - \033[32mCIPHER OF CESAR\033[1;m
-	\033[31mK\033[1;m) \033[31mREVERSE\033[1;m - \033[32mTEXT\033[1;m
-	\033[31mL\033[1;m) \033[31mREVERSE\033[1;m - \033[32mWORDS\033[1;m
-
-	\033[31mq\033[1;m) EXIT
-""")
-	opcao1 = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
-	if opcao1 == "A" or opcao1 == "a":
-		Md5()
-	elif opcao1 == "B" or opcao1 == "b":
-		Sha1()
-	elif opcao1 == "C" or opcao1 == "c":
-		Sha224()
-	elif opcao1 == "D" or opcao1 == "d":
-		Sha256()
-	elif opcao1 == "E" or opcao1 == "e":
-		Sha384()
-	elif opcao1 == "F" or opcao1 == "f":
-		Sha512()
-	elif opcao1 == "G" or opcao1 == "g":
-		Base64()
-	elif opcao1 == "H" or opcao1 == "h":
-		Binario()
-	elif opcao1 == "I" or opcao1 == "i":
-		Hexadecimal()
-	elif opcao1 == "J" or opcao1 == "j":
-		CifraDeCesar()
-	elif opcao1 == "K" or opcao1 == "k":
-		TextReverse()
-	elif opcao1 == "L" or opcao1 == "l":
-		WordsReverse()
-	elif opcao1 == "q" or opcao1 == "q":
-		exit(1)
-	else:
-		Escolha()
+janela = Tk()
+Label(janela, font="Helvetica 13 bold", text="HashCode", width=180, height=2, bg="#161616", fg="green").pack()
+janela.title("HashCodeGUI.py for encode of text from hash's GUI")
 
 def Md5():
-	Apresentacao()
-	mystring = input("\033[32mPLACE THE TEXT YOU WANT TO ENCRYPT IN MD5\033[1;m: ")
+	mystring = (bloco1.get())
 	hash_object = hashlib.md5(mystring.encode())
-	print("")
-	print(hash_object.hexdigest())
-	print("")
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCODE IN MD5 (y/n) ?:\033[1;m ", Md5)
+	janela.geometry("420x550")
+	lb["text"] = hash_object.hexdigest()
+	resultado = open("resultado.txt", "w")
+	resultado.write("SUA SENHA ENCRIPTADA EM MD5 É: " + hash_object.hexdigest())
 
 def Sha1():
-	Apresentacao()
-	mystring = input("\033[32mPLACE THE TEXT YOU WANT TO ENCRYPT IN SHA1\033[1;m: ")
+	mystring = (bloco1.get())
 	hash_object = hashlib.sha1(mystring.encode())
-	print("")
-	print(hash_object.hexdigest())
-	print("")
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCODE IN SHA1 (y/n) ?:\033[1;m ", Sha1)
+	janela.geometry("420x550")
+	lb["text"] = hash_object.hexdigest()
+	resultado = open("resultado.txt", "w")
+	resultado.write("SUA SENHA ENCRIPTADA EM SHA1 É: " + hash_object.hexdigest())
 
 def Sha224():
-	Apresentacao()
-	mystring = input("\033[32mPLACE THE TEXT YOU WANT TO ENCRYPT IN SHA224\033[1;m: ")
+	mystring = (bloco1.get())
 	hash_object = hashlib.sha224(mystring.encode())
-	print("")
-	print(hash_object.hexdigest())
-	print("")
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCODE IN SHA224 (y/n) ?:\033[1;m ", Sha224)
+	janela.geometry("463x550")
+	lb["text"] = hash_object.hexdigest()
+	resultado = open("resultado.txt", "w")
+	resultado.write("SUA SENHA ENCRIPTADA EM SHA224 É: " + hash_object.hexdigest())
 
 def Sha256():
-	Apresentacao()
-	mystring = input("\033[32mPLACE THE TEXT YOU WANT TO ENCRYPT IN SHA256\033[1;m: ")
+	mystring = (bloco1.get())
 	hash_object = hashlib.sha256(mystring.encode())
-	print("")
-	print(hash_object.hexdigest())
-	print("")
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCODE IN SHA256 (y/n) ?:\033[1;m ", Sha256)
+	janela.geometry("520x550")
+	lb["text"] = hash_object.hexdigest()
+	resultado = open("resultado.txt", "w")
+	resultado.write("SUA SENHA ENCRIPTADA EM SHA256 É: " + hash_object.hexdigest())
 
 def Sha384():
-	Apresentacao()
-	mystring = input("\033[32mPLACE THE TEXT YOU WANT TO ENCRYPT IN SHA384\033[1;m: ")
+	mystring = (bloco1.get())
 	hash_object = hashlib.sha384(mystring.encode())
-	print("")
-	print(hash_object.hexdigest())
-	print("")
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCODE IN SHA384 (y/n) ?:\033[1;m ", Sha384)
+	janela.geometry("770x550")
+	lb["text"] = hash_object.hexdigest()
+	resultado = open("resultado.txt", "w")
+	resultado.write("SUA SENHA ENCRIPTADA EM SHA384 É: " + hash_object.hexdigest())
 
 def Sha512():
-	Apresentacao()
-	mystring = input("\033[32mPLACE THE TEXT YOU WANT TO ENCRYPT IN SHA512\033[1;m: ")
+	mystring = (bloco1.get())
 	hash_object = hashlib.sha512(mystring.encode())
-	print("")
-	print(hash_object.hexdigest())
-	print("")
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCODE IN SHA512 (y/n) ?:\033[1;m ", Sha512)
+	janela.geometry("1010x550")
+	lb["text"] = hash_object.hexdigest()
+	resultado = open("resultado.txt", "w")
+	resultado.write("SUA SENHA ENCRIPTADA EM 512 É: " + hash_object.hexdigest())
 
 def Base64Encode():
-	Apresentacao()
-	mystring = str(input("\033[32mPLACE THE TEXT YOU WANT TO TRANSFORM IN BASE64\033[1;m: ")) 
-	print("")
-	encode = b64encode(mystring.encode('utf-8')) 
+	mystring = (bloco1.get())
+	encode = b64encode(mystring.encode('utf-8'))
+	janela.geometry("420x550")
 	decode = encode.decode('utf-8')
-	print(decode)
-	print("") 
-	Again("\n\033[1;36mWOULD YOU LIKE TO TRANSFORM ANOTHER TEXT IN BASE64 (y/n) ?:\033[1;m ", Base64Encode)
+	lb["text"] = decode
+	resultado = open("resultado.txt", "w")
+	resultado.write("SUA SENHA TRANSFORMADA EM BASE64 É: " + decode)
 
 def Base64Decode():
-	Apresentacao()
-	mystring = str(input("\033[32mPLACE THE TEXT YOU WANT TO UNCOVER IN BASE64\033[1;m: ")) 
-	print("")
-	try:
-		decode = b64decode(mystring).decode('utf-8')
-		print(decode)
-		print("")
-	except:
-		print("\n[\033[1;91m!\033[1;m] INCORRECT PADDING")
-		sleep(3)
-		Base64Decode()
-	Again("\n\033[1;36mWISHES TO UNCOVER ANOTHER TEXT IN BASE64 (y/n) ?:\033[1;m ", Base64Decode)
-
-def Base64():
-	Apresentacao()
-	print("""
-[\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
-
-\033[31m1\033[1;m) ENCODE - BASE64
-\033[31m2\033[1;m) DECODE - BASE64
-""")
-	opcao1 = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
-	if opcao1 == "1":
-		Base64Encode()
-	elif opcao1 == "2":
-		Base64Decode()
-	else:
-		Base64()
-
+	mystring = (bloco1.get())
+	janela.geometry("420x550")
+	decode = b64decode(mystring).decode('utf-8')
+	lb["text"] = decode
+	resultado = open("resultado.txt", "w")
+	resultado.write("SUA SENHA DESTRANSFORMADA EM BASE64 É: " + decode)
 
 def BinarioEncode(encoding='utf-8', errors='surrogatepass'):
-	Apresentacao()
-	try:
-		mystring = input("\033[32mPLACE THE TEXT YOU WANT TO TRANSFORM IN BINÁRIO\033[1;m: ")
-		print("")
+	try:	
+		mystring = (bloco1.get())
 		bits = bin(int(binascii.hexlify(mystring.encode(encoding, errors)), 16))[2:]
-		print(bits.zfill(8 * ((len(bits) + 7) // 8)))
-		print("")
+		janela.geometry("520x550")
+		lb["text"] = bits.zfill(8 * ((len(bits) + 7) // 8))
+		resultado = open("resultado.txt", "w")
+		resultado.write("SUA SENHA TRANSFORMADA EM BINÁRIO É: " + bits.zfill(8 * ((len(bits) + 7) // 8)))
 	except:
-		print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
-		sleep(3)
-		BinarioEncode()
-	Again("\n\033[1;36mWOULD YOU LIKE TO TRANSFORM ANOTHER TEXT IN BINÁRIO (y/n) ?:\033[1;m ", BinarioEncode)
+		return BinarioEncode
 
 def BinarioDecode(encoding='utf-8', errors='surrogatepass'):
-	Apresentacao()
 	try:
-		binario = input("\033[32mPLACE THE SEQUENCE OF NUMBERS YOU DESIRE TO UNCOVER IN BINARY\033[1;m: ")
+		binario = (bloco1.get())
 		binario = binario.replace(" ", "")
 		n = int(binario, 2)
-		print("")
-		print(int2bytes(n).decode(encoding, errors))
-		print("")
+		janela.geometry("520x550")
+		lb["text"] = int2bytes(n).decode(encoding, errors)
+		resultado = open("resultado.txt", "w")
+		resultado.write("SUA SENHA DESTRANSFORMADA EM BINÁRIO É: " + int2bytes(n).decode(encoding, errors))
 	except:
-		print("\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
-		sleep(3)
-		BinarioDecode()
-	Again("\n\033[1;36mWISHES TO UNCOVER ANOTHER SEQUENCE IN BINARY (y/n) ?:\033[1;m ", BinarioDecode)
+		return BinarioDecode
 
 def int2bytes(i):
 	hex_string = '%x' % i
 	n = len(hex_string)
 	return binascii.unhexlify(hex_string.zfill(n + (n & 1)))
 
-
-def Binario():
-	Apresentacao()
-	print("""
-[\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
-
-\033[31m1\033[1;m) ENCODE - BINARY
-\033[31m2\033[1;m) DECODE - BINARY
-""")
-	opcao1 = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
-	if opcao1 == "1":
-		BinarioEncode()
-	elif opcao1 == "2":
-		BinarioDecode()
-	else:
-		Binario()
-
-
-def HexaEncode():
-	Apresentacao()
-	mystring = input("\033[32mPLACE THE TEXT YOU WANT TO TRANSFORM IN HEXADECIMAL\033[1;m: ")
-	print("")
+def HexadecimalEncode():
+	mystring = (bloco1.get())
+	janela.geometry("520x550")
 	encode = binascii.hexlify(bytes(mystring, "utf-8"))
 	encode = str(encode).strip("b")
 	encode = encode.strip("'")
 	encode = re.sub(r'(..)', r'\1 ', encode).strip()
-	print(encode)
-	print("")
-	Again("\n\033[1;36mWANT TO TRANSFORM ANOTHER TEXT IN HEXADECIMAL (y/n) ?:\033[1;m ", HexaEncode)
+	lb["text"] = encode
+	resultado = open("resultado.txt", "w")
+	resultado.write("SUA SENHA TRANSFORMADA EM HEXADECIMAL É: " + encode)
 
-def HexaDecode():
-	Apresentacao()
-	try:
-		mystring = input("\033[32mPLACE THE SEQUENCE OF CHARACTERS YOU DESIRE TO UNCOVER IN HEXADECIMAL\033[1;m: ")
-		print("")
-		decode = bytes.fromhex(mystring).decode('utf-8')
-		print(decode)
-		print("")
-	except:
-		print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
-		sleep(3)
-		HexaDecode()
-	Again("\n\033[1;36mWISHES TO UNCOVER ANOTHER SEQUENCE IN HEXADECIMAL (y/n) ?:\033[1;m ", HexaDecode)
-
-def Hexadecimal():
-	Apresentacao()
-	print("""
-[\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
-
-\033[31m1\033[1;m) ENCODE - HEXADECIMAL
-\033[31m2\033[1;m) DECODE - HEXADECIMAL
-""")
-	opcao1 = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
-	if opcao1 == "1":
-		HexaEncode()
-	elif opcao1 == "2":
-		HexaDecode()
-	else:
-		Hexadecimal()
-
+def HexadecimalDecode():
+	mystring = (bloco1.get())
+	janela.geometry("520x550")
+	decode = bytes.fromhex(mystring).decode('utf-8')
+	lb["text"] = decode
+	resultado = open("resultado.txt", "w")
+	resultado.write("SUA SENHA DESTRANSFORMADA EM BINÁRIO É: " + decode)
 
 def TextReverseEncode():
-	Apresentacao()
-	mystring = input("\033[32mPLACE THE TEXT YOU WANT TO REVERSE\033[1;m: ")
-	print("")
-	print(mystring[::-1])
-	print("")
-	Again("\n\033[1;36mWANTS TO MAKE ANOTHER REVERSE (y/n) ?:\033[1;m ", TextReverseEncode)
-
+	mystring = (bloco1.get())
+	janela.geometry("420x550")
+	lb["text"] = mystring[::-1]
+	resultado = open("resultado.txt", "w")
+	resultado.write("O RESULTADO DO REVERSE É: " + mystring[::-1])
 
 def TextReverseDecode():
-	Apresentacao()
-	mystring = input("\033[32mPLACE TEXT YOU WANT TO UNCOVER THE REVERSE\033[1;m: ")
-	print("")
-	print(mystring[::-1])
-	print("")
-	Again("\n\033[1;36mWANT TO UNCOVER ANOTHER REVERSE (y/n) ?:\033[1;m ", TextReverseDecode)
-
-def TextReverse():
-	Apresentacao()
-	print("""
-[\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
-
-\033[31m1\033[1;m) ENCODE - REVERSE-TEXT
-\033[31m2\033[1;m) DECODE - REVERSE-TEXT
-""")
-	opcao1 = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
-	if opcao1 == "1":
-		TextReverseEncode()
-	elif opcao1 == "2":
-		TextReverseDecode()
-	else:
-		TextReverse()
-
+	mystring = (bloco1.get())
+	janela.geometry("420x550")
+	lb["text"] = mystring[::-1]
+	resultado = open("resultado.txt", "w")
+	resultado.write("O RESULTADO DO REVERSE É: " + mystring[::-1])
 
 def WordsReverseEncode():
-	Apresentacao()
-	mystring = input("\033[32mPLACE THE TEXT YOU WANT TO REVERSE\033[1;m: ")
-	print("")
-	print(' '.join(mystring.split()[::-1]))
-	print("")
-	Again("\n\033[1;36mWANTS TO MAKE ANOTHER REVERSE (y/n) ?:\033[1;m ", WordsReverseEncode)
+	mystring = (bloco1.get())
+	janela.geometry("420x550")
+	lb["text"] = ' '.join(mystring.split()[::-1])
+	resultado = open("resultado.txt", "w")
+	resultado.write("O RESULTADO DO REVERSE É: " + ' '.join(mystring.split()[::-1]))
 
 def WordsReverseDecode():
-	Apresentacao()
-	mystring = input("\033[32mPLACE TEXT YOU WANT TO UNCOVER THE REVERSE\033[1;m: ")
-	print("")
-	print(' '.join(mystring.split()[::-1]))
-	print("")
-	Again("\n\033[1;36mWANT TO UNCOVER ANOTHER REVERSE (y/n) ?:\033[1;m ", WordsReverseDecode)
-
-def WordsReverse():
-	Apresentacao()
-	print("""
-[\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
-
-\033[31m1\033[1;m) ENCODE - REVERSE-WORDS
-\033[31m2\033[1;m) DECODE - REVERSE-WORDS
-""")
-	opcao1 = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
-	if opcao1 == "1":
-		WordsReverseEncode()
-	elif opcao1 == "2":
-		WordsReverseDecode()
-	else:
-		WordsReverse()
+	mystring = (bloco1.get())
+	janela.geometry("420x550")
+	lb["text"] = ' '.join(mystring.split()[::-1])
+	resultado = open("resultado.txt", "w")
+	resultado.write("O RESULTADO DO REVERSE É: " + ' '.join(mystring.split()[::-1]))
 
 
-def CifraDeCesar():
-	Apresentacao()
-	print("""
-[\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
+bloco1 = Entry(janela, bg="#161616", fg="#FFFFFF")
+bloco1.place(x=10, y=60, width=400, height=40)
 
-\033[31m1\033[1;m) ENCODE - CIPHER OF CESAR
-\033[31m2\033[1;m) DECODE - CIPHER OF CESAR
-""")
-	opcao1 = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
-	if opcao1 == "1":
-		ChamarBloco1()
-	elif opcao1 == "2":
-		ChamarBloco2()
-	else:
-		CifraDeCesar()
+b1 = Button(janela, width=15, text="MD5", bg="#161616", fg="green", command=Md5)
+b1.place(x=60, y=140)
 
+b2 = Button(janela, width=15, text="SHA1", bg="#161616", fg="green", command=Sha1)
+b2.place(x=215, y=140)
 
-def cifrar(palavras, chave):
-	abc = "abcdefghijklmnopqrstuvwxyz "
-	text_cifrado = ''
+b3 = Button(janela, width=15, text="SHA224", bg="#161616", fg="green", command=Sha224)
+b3.place(x=60, y=180)
 
-	for letra in palavras:
-		soma = abc.find(letra) + chave
-		modulo = int(soma) % len(abc)
-		text_cifrado = text_cifrado + str(abc[modulo])
+b4 = Button(janela, width=15, text="SHA256", bg="#161616", fg="green", command=Sha256)
+b4.place(x=215, y=180)
 
-	return text_cifrado
+b4 = Button(janela, width=15, text="SHA384", bg="#161616", fg="green", command=Sha384)
+b4.place(x=60, y=220)
 
+b5 = Button(janela, width=15, text="SHA512", bg="#161616", fg="green", command=Sha512)
+b5.place(x=215, y=220)
 
-def decifrar(palavras, chave):
-	abc = "abcdefghijklmnopqrstuvwxyz "
-	text_cifrado = ''
+b6 = Button(janela, width=15, text="BASE64 ENCODE", bg="#161616", fg="green", command=Base64Encode)
+b6.place(x=60, y=260)
 
-	for letra in palavras:
-		soma = abc.find(letra) - chave
-		modulo = int(soma) % len(abc)
-		text_cifrado = text_cifrado + str(abc[modulo])
+b7 = Button(janela, width=15, text="BASE64 DECODE", bg="#161616", fg="green", command=Base64Decode)
+b7.place(x=215, y=260)
 
-	return text_cifrado
+b8 = Button(janela, width=15, text="BINÁRIO ENCODE", bg="#161616", fg="green", command=BinarioEncode)
+b8.place(x=60, y=300)
 
-def ChamarBloco1():
-	Apresentacao()
-	try:
-		c = str(input('\n\033[32mTEXT FOR CIPHER\033[1;m: ')).lower()
-		n = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
-		print("\033[32mRESULT\033[1;m:", cifrar(c, n))
-		print("")
-	except:
-		print("\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
-		sleep(3)
-		ChamarBloco1()
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCODE GIVES CIPHER OF CESAR (y/n) ?:\033[1;m ", ChamarBloco1)
+b9 = Button(janela, width=15, text="BINÁRIO DECODE", bg="#161616", fg="green", command=BinarioDecode)
+b9.place(x=215, y=300)
 
+b10 = Button(janela, width=15, text="HEXA ENCODE", bg="#161616", fg="green", command=HexadecimalEncode)
+b10.place(x=60, y=340)
 
-def ChamarBloco2():
-	Apresentacao()
-	try:
-		cc = str(input('\n\033[32mTEXT TO BE DECODE\033[1;m: ')).lower()
-		cn = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
-		print("\033[32mRESULT\033[1;m:", decifrar(cc, cn))
-		print("")
-	except:
-		print("\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
-		sleep(3)
-		ChamarBloco2()
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER DECODE GIVES CIPHER OF CESAR (y/n) ?:\033[1;m ", ChamarBloco2)
+b11 = Button(janela, width=15, text="HEXA DECODE", bg="#161616", fg="green", command=HexadecimalDecode)
+b11.place(x=215, y=340)
+
+b12 = Button(janela, width=15, text="REVERSE TEXT E", bg="#161616", fg="green", command=TextReverseEncode)
+b12.place(x=60, y=380)
+
+b13 = Button(janela, width=15, text="REVERSE TEXT D", bg="#161616", fg="green", command=TextReverseDecode)
+b13.place(x=215, y=380)
+
+b14 = Button(janela, width=15, text="REVERSE WORDS E", bg="#161616", fg="green", command=WordsReverseEncode)
+b14.place(x=60, y=420)
+
+b15 = Button(janela, width=15, text="REVERSE WORDS D", bg="#161616", fg="green", command=WordsReverseDecode)
+b15.place(x=215, y=420)
+
+b16 = Button(janela, width=3, text="QUIT", bg="#161616", fg="green", command=janela.quit)
+b16.place(x=185, y=460)
+
+lb = Label(janela, font="Helvetica 13 bold", text="⟫ ", fg="#161616")
+lb.place(x=10, y=510)
 
 
-Escolha()
+janela.geometry("420x550")
+janela.mainloop()
