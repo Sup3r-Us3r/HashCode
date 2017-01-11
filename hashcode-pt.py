@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python
 #coding: utf-8
 
 '''
@@ -11,10 +11,18 @@ import codecs
 import binascii
 import re
 from time import sleep
-from sys import exit
+import sys
 import os
+from platform import python_version
 
 Limpar = "clear"
+
+if sys.version_info[0] < 3:
+	versao = python_version()
+	print("\n\033[32m Você está usando o python na versão\033[1;m \033[1m\033[31m%s\033[1;m \033[32me ela é inferior ao python3 em diante.\033[1;m" %(versao))
+	print("\033[32m Por favor rode o HashCode com a versão superior ao python2.\033[1;m\n")
+	exit(1)
+
 
 def Apresentacao():
 	os.system(Limpar)
@@ -414,6 +422,7 @@ def ChamarBloco2():
 		sleep(3)
 		ChamarBloco2()
 	Again("\n\033[1;36mDESEJA FAZER OUTRO DECODE DA CIFRA DE CÉSAR (s/n) ?:\033[1;m ", ChamarBloco2)
+
 
 
 Escolha()
