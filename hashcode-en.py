@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python
 #coding: utf-8
 
 '''
@@ -11,10 +11,17 @@ import codecs
 import binascii
 import re
 from time import sleep
-from sys import exit
+import sys
 import os
+from platform import python_version
 
 Limpar = "clear"
+
+if sys.version_info[0] < 3:
+	versao = python_version()
+	print("\n\033[32m You are using python in the version\033[1;m \033[1m\033[31m%s\033[1;m \033[32mand it is lower than python3 onwards.\033[1;m" %(versao))
+	print("\033[32m Please run HashCode with a higher version than python2\033[1;m\n")
+	exit(1)
 
 def Apresentacao():
 	os.system(Limpar)
