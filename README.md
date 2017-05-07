@@ -1,3 +1,5 @@
+[![python-version](https://img.shields.io/badge/PYTHON-3.6-blue.svg)](https://www.python.org/) [![license](https://img.shields.io/badge/LICENSE-GNU-yellow.svg)](https://github.com/Sup3r-Us3r/HashCode/blob/master/LICENSE)
+
 # HashCode [$ª'%¨§¬°&~*\£^;]
 <img alt="python-logo" width="180" src="https://raw.githubusercontent.com/Sup3r-Us3r/HashCode/master/Screenshots/python-logo.png">
 
